@@ -21,5 +21,8 @@ Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 package-lock.json
