@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Traits\HasRoles;
 
 class Role extends Controller
 {
+    use HasRoles;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('livewire.pages.role.role');
     }
 
     /**

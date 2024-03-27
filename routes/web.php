@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,9 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/role', [Role::class, 'index'])
+    ->middleware(['auth'])
+    ->name('role');
 
 require __DIR__.'/auth.php';
