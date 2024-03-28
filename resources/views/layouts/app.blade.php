@@ -32,5 +32,7 @@
                 {{ $slot }}
             </main>
         </div>
+        <script async src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+        {{-- s --}}
     </body>
 </html>

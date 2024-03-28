@@ -14,7 +14,16 @@ class Role extends Controller
      */
     public function index()
     {
-        return view('livewire.pages.role.role');
+        /* $all_users_with_all_their_roles = User::with('roles')->get();
+        foreach($all_users_with_all_their_roles as $useRole) {
+            $a = $useRole->getRoleNames();
+
+        } */
+        $user = User::first();
+        $admin = $user->hasRole('admin');
+        $a = $user->getRoleNames();
+        $c = $a->all();
+        return view('livewire.pages.role.role', ['a' => $a->all()]);
     }
 
     /**
