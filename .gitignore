@@ -30,5 +30,4 @@ package-lock.json
 public/build/assets/app-Cbfznh_W.css
 
 public/build/assets/app-D9IdX_ep.css
-
-database/migrations/2024_03_27_221457_create_permission_tables.php
+database/
