@@ -4,15 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
-class Role extends Controller
+class RoleController extends Controller
 {
+    use HasRoles;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        /* $all_users_with_all_their_roles = User::with('roles')->get();
+        foreach($all_users_with_all_their_roles as $useRole) {
+            $a = $useRole->getRoleNames();
+
+        } */
+        $user = User::first();
+        $admin = $user->hasRole('admin');
+        $permis = $user->hasDirectPermission('create user');
+        $a = $user->getRoleNames();
+        $c = $a->all();
+        $roles = Role::all();
+        $permission = Permission::all();
+        return view('livewire.pages.role.role', ['roles' => $roles->all()]);
     }
 
     /**
