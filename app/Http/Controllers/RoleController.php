@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -22,11 +23,16 @@ class RoleController extends Controller
 
         } */
         $user = User::first();
+        $users = DB::table('users')->where('email','mainhead@gmail.com')->get();
         $admin = $user->hasRole('admin');
         $permis = $user->hasDirectPermission('create users');
         $a = $user->getRoleNames();
         $c = $a->all();
         $roles = Role::all();
+        $role = Role::where('name','admin')->get();
+        foreach($role as $r) {
+            $b = $r;
+        }
         $permission = Permission::all();
         return view('livewire.pages.role.role', ['roles' => $roles->all()]);
     }
