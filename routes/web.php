@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UpImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,12 @@ Route::view('profile', 'profile')
 Route::get('/role', [RoleController::class, 'index'])
     ->middleware(['auth'])
     ->name('role');
+
+Route::get('/upload', [UpImageController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('upload');
+
+Route::post('/upfile', [UpImageController::class, 'store'])
+    ->name('upfile');
 
 require __DIR__.'/auth.php';

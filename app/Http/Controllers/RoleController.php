@@ -23,7 +23,7 @@ class RoleController extends Controller
         } */
         $user = User::first();
         $admin = $user->hasRole('admin');
-        $permis = $user->hasDirectPermission('create user');
+        $permis = $user->hasDirectPermission('create users');
         $a = $user->getRoleNames();
         $c = $a->all();
         $roles = Role::all();

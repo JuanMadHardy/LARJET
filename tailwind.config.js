@@ -20,7 +20,8 @@ import forms from '@tailwindcss/forms';
     plugins: [forms],
 };*/
 import withMT from "@material-tailwind/html/utils/withMT";
-
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
 /** @type {import('tailwindcss').Config} */
 export default withMT({
     content: [
