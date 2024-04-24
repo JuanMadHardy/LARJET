@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\StoreUpImageRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUpImageRequest;
 use App\Models\UpImage;
+use Illuminate\Support\Facades\Storage;
 
 class UpImageController extends Controller
 {
@@ -27,9 +27,11 @@ class UpImageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUpImageRequest $request)
+    public function store(Request $request)
     {
-        $file = $request->all();
+        $file = $request->file();
+        $content = $request->file('upfile')->getContent();
+        Storage::put('upfile',$content);
         $espera= '';
     }
 
