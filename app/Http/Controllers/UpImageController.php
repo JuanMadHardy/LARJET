@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUpImageRequest;
 use App\Models\UpImage;
 use Illuminate\Support\Facades\Storage;
+use App\Jobs\MyJob;
 
 class UpImageController extends Controller
 {
@@ -29,9 +30,12 @@ class UpImageController extends Controller
      */
     public function store(Request $request)
     {
+
         $file = $request->file();
         $content = $request->file('upfile')->getContent();
         Storage::put('upfile',$content);
+
+        $response = MyJob::dispatch();
         $espera= '';
     }
 
