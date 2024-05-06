@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateUpImageRequest;
 use App\Models\UpImage;
 use Illuminate\Support\Facades\Storage;
 use App\Jobs\MyJob;
+use Illuminate\Support\Facades\Redirect;
 
 class UpImageController extends Controller
 {
@@ -36,7 +37,7 @@ class UpImageController extends Controller
         Storage::put('upfile',$content);
 
         $response = MyJob::dispatch();
-        $espera= '';
+        return redirect()->route('dashboard');
     }
 
     /**

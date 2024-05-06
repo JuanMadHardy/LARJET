@@ -25,7 +25,7 @@ class RoleController extends Controller
         $user = User::first();
         $users = DB::table('users')->where('email','mainhead@gmail.com')->get();
         $admin = $user->hasRole('admin');
-        $permis = $user->hasDirectPermission('create user');
+        $permis = $user->hasDirectPermission('create users');
         $a = $user->getRoleNames();
         $c = $a->all();
         $roles = Role::all();
